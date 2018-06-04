@@ -11,19 +11,21 @@ public class PlayerController : MonoBehaviour {
         //获取用户输入的攻击
 		if(Input.GetButtonDown("Fire1"))            //获取用户攻击输入
         {
-            player.Attack();                        //调用玩家个攻击   
+            player.Attack(player.transform);        //调用玩家个攻击
         }
 
         //获取用户输入的移动
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
 
-        player.Move(new Vector3(h, 0, v));          //不会有y轴的移动
-       
+        if (v != 0f)
+            player.Move(new Vector3(h, 0, v));          //不会有y轴的移动
+    
+        if (Input.GetKey(KeyCode.A))                    //旋转
+            transform.Rotate(Vector3.up * Time.deltaTime * - player.angularVelocity);
 
-        //获取用户输入的转向
-        var lookDir = Vector3.forward * v + Vector3.right * h;      //获取用户输入的方向
-        if (lookDir.magnitude != 0)                  //如果有方向的输入且有模值
-            player.Rotate(lookDir);
+        if (Input.GetKey(KeyCode.D))
+            transform.Rotate(Vector3.up * Time.deltaTime * player.angularVelocity);
+
     }
 }

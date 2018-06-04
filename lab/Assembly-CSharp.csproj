@@ -55,8 +55,11 @@
      <Compile Include="Assets\Scripts\Controller\MonsterController.cs" />
      <Compile Include="Assets\Scripts\Controller\PlayerController.cs" />
      <Compile Include="Assets\Scripts\Model\Arms.cs" />
+     <Compile Include="Assets\Scripts\Model\Axe.cs" />
+     <Compile Include="Assets\Scripts\Model\BloodBag.cs" />
+     <Compile Include="Assets\Scripts\Model\Bullet.cs" />
      <Compile Include="Assets\Scripts\Model\Character.cs" />
-     <Compile Include="Assets\Scripts\Model\MeteorHammer.cs" />
+     <Compile Include="Assets\Scripts\Model\Gun.cs" />
      <Compile Include="Assets\Scripts\Model\Monster.cs" />
      <Compile Include="Assets\Scripts\Model\Player.cs" />
  <Reference Include="UnityEditor.StandardEvents">

@@ -521,7 +521,7 @@ MonoBehaviour:
   angularVelocity: 100
   characterController: {fileID: 0}
   DeathAudioSource: {fileID: 0}
-  currnetArm: {fileID: 1754979988295296, guid: 4a03b19d69050574f8294fa30a9948e4, type: 2}
+  currnetArm: {fileID: 1077024483386184, guid: fd576621fcde0c34e9e07b0cfd4bf113, type: 2}
   arms: []
   deathMonster: 0
 --- !u!54 &2047462009

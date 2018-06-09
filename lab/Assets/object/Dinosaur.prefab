@@ -127,7 +127,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -159,10 +159,10 @@ MonoBehaviour:
   angularVelocity: 1
   characterController: {fileID: 0}
   DeathAudioSource: {fileID: 0}
-  currnetArm: {fileID: 0}
+  currnetArm: {fileID: 1088370165817388, guid: abf08b2b1e368d044a618788e2ac1893, type: 2}
   arms:
-  - {fileID: 1754979988295296, guid: 4a03b19d69050574f8294fa30a9948e4, type: 2}
-  - {fileID: 1077024483386184, guid: fd576621fcde0c34e9e07b0cfd4bf113, type: 2}
+  - {fileID: 1088370165817388, guid: abf08b2b1e368d044a618788e2ac1893, type: 2}
+  - {fileID: 1160180876880822, guid: fd576621fcde0c34e9e07b0cfd4bf113, type: 2}
   playerTransform: {fileID: 0}
   damageValue: 10
   bloodBag: {fileID: 1751853299690518, guid: fa9a29daf96f7a74fb4df5f185de90cc, type: 2}

@@ -15,7 +15,6 @@ public class Monster : Character {
 
     void Update()
     {
-        //agent.destination = playerTransform.position;       //自动导航
         Vector3 targetDir = playerTransform.position - transform.position;
 
         float step = angularVelocity * Time.deltaTime;
@@ -55,9 +54,14 @@ public class Monster : Character {
 
     private void FallDownArm()
     {
-        Debug.Log("掉落了一个武器");
+        Debug.Log("掉落了  一个武器");
+        //从怪物拥有的武器中随便掉落一个武器
         int num = Random.Range(0, arms.Count);
-        Instantiate( arms[num], new Vector3(transform.position.x + 2, 0, transform.position.z), Quaternion.identity);
+
+        Debug.Log("Monster: " + num);
+        ///Instantiate( arms[num], new Vector3(transform.position.x + 2, 0, transform.position.z), Quaternion.identity);
+
+        arms[num].GetComponent<Arms>().GenerateSelf(arms[num], transform);        //当前武器生成自己
     }
 
     /**
@@ -65,6 +69,7 @@ public class Monster : Character {
      * */
     public override void AfterDeathOperate()
     {
+        Debug.Log("怪物死亡后的操作");
         monsterAcount--;                                //怪物数量减少
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -74,8 +79,8 @@ public class Monster : Character {
         if (num % 10 == 0)
             FallDownBloodBag();                         //掉落血包
 
-        if (num % 20 == 0)
-            FallDownArm();                              //掉落武器
+        //if (num % 20 == 0)
+            //FallDownArm();                              //掉落武器
 
         FallDownArm();
     }

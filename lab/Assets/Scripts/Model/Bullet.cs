@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour {                             //这样是不
 
     void Start()
     {
-        Destroy(gameObject, 1);                                //两秒后自动销毁子弹自己
+        Destroy(gameObject, 3);                                //两秒后自动销毁子弹自己
     }
 
 
@@ -14,13 +14,15 @@ public class Bullet : MonoBehaviour {                             //这样是不
         Debug.Log("子弹检测到碰撞");
         var target = collider.GetComponent<Monster>();
 
-        if (target)                 
+        if (target)
             target.TakeDamage(damageValue);             //如果打中怪物
+            
 
-        if (collider.GetComponent<Player>()) { 
-            Debug.Log("子弹碰撞到人物");
+        if (collider.GetComponent<Player>())
             return;
-        }
+
+        if (collider.GetComponent<Gun>())
+            return;
 
         Destroy(gameObject);                            //碰撞完成之后清楚自身
     }

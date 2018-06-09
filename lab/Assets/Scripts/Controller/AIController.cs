@@ -2,7 +2,7 @@
 using UnityEngine.AI;
 
 public class AIController : MonoBehaviour {
-    public float rateTime = 5;          //生成怪物的速率
+    public float rateTime = 2;          //生成怪物的速率
     public float myTime;
 
     public NavMeshAgent agent;
@@ -30,8 +30,6 @@ public class AIController : MonoBehaviour {
             rateTime = 10;
         else
             rateTime = 5;
-
-        
     }
 
     public virtual void GenerateMonster() { }       //给子类留的钩子

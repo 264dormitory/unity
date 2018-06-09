@@ -32,9 +32,11 @@ public class Player : Character {
      * */
     public void ChangeArms(GameObject @object)
     {
-        Debug.Log("玩家捡到武器");
+        var pickArmClassName = @object.GetComponent<Arms>().GetType().Name;       //获取碰撞到类的武器
 
-        currnetArm = @object;                           //赋值当前武器
+        foreach (GameObject gameObject in arms)
+            if (gameObject.GetComponent<Arms>().GetType().Name.Equals(pickArmClassName))
+                currnetArm = gameObject;
     }
 
     /**
@@ -42,13 +44,30 @@ public class Player : Character {
      * */
     private void OnTriggerEnter(Collider collider)      //发生碰撞的事件
     {
-        Debug.Log("玩家检测到碰撞");
-        var target = collider.GetComponent<Arms>();
+        Debug.Log("Player: 玩家检测到碰撞");
 
-        if (target)
-        {
-            arms.Add(currnetArm);                      //将原来的武器存储起来
-            ChangeArms(collider.gameObject);           //玩家捡起武器                                    
-        }
+        var target = collider.gameObject.GetComponent<Arms>();
+
+        if(target && target.GetType().Name == currnetArm.GetComponent<Arms>().GetType().Name)
+            return;                                             //如果碰撞到的武器与原来武器相同则直接返回
+
+        Debug.Log("Player: " + target.GetType().Name);
+
+        if (target && target.GetType() != typeof(FireBall))     //碰撞到武器且不是火球
+            ChangeArms(collider.gameObject);                    //玩家捡起武器 
+
+        Destroy(collider.gameObject);
+    }
+
+    /**
+     * 碰撞持续状态 每帧都会调用
+     * */
+    private void OnTriggerStay(Collider collider) { }
+
+    /**
+     * 碰撞结束状态
+     * */
+    private void OnTriggerExit(Collider collider)               
+    {
     }
 }

@@ -28,10 +28,11 @@ public abstract class Character : MonoBehaviour {
     public virtual void Move(Vector3 v)     
     {
 
+        Debug.Log("移动");
+
         if (v.z < 0)
             transform.position -= transform.forward * speed * Time.deltaTime;
         else
-            // characterController.SimpleMove(movement);
             transform.position += transform.forward * speed * Time.deltaTime;
     }
 
@@ -48,8 +49,10 @@ public abstract class Character : MonoBehaviour {
      * */
     public virtual void Attack(Transform transform)
     {
+        Debug.Log("攻击");
         if (currnetArm != null)
         {
+            Debug.Log("当前武器攻击");
             Arms arm = currnetArm.GetComponent<Arms>();    //获取当前武器上的component
             arm.Attack(transform);                         //调用component中的攻击方法
         }

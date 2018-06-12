@@ -9,6 +9,7 @@ public class Axe : Arms {
 
     void Start()
     {
+        disappearTime = (float)DisappearTime.axeDisappearTime;
         Destroy(gameObject, disappearTime);
     }
 

@@ -1,9 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BloodBag : MonoBehaviour {
-    public float bloodBagValue = 10;            //血包的容量
+    public float bloodBagValue = 10;                    //血包的容量
+
+    void Start()
+    {
+        Destroy(gameObject, (float)DisappearTime.bloodBagDisappearTime);
+    }
 
     private void OnTriggerEnter(Collider collider)      //发生碰撞的事件
     {

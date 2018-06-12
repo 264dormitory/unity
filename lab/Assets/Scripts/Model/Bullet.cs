@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour {                             //这样是不
 
     void Start()
     {
-        Destroy(gameObject, 3);                                //两秒后自动销毁子弹自己
+        Destroy(gameObject, (float)DisappearTime.bulletDisappearTime);                                //两秒后自动销毁子弹自己
     }
 
 
@@ -21,7 +21,7 @@ public class Bullet : MonoBehaviour {                             //这样是不
         if (collider.GetComponent<Player>())
             return;
 
-        if (collider.GetComponent<Gun>())
+        if (collider.GetComponent<Arms>())
             return;
 
         Destroy(gameObject);                            //碰撞完成之后清楚自身

@@ -6,6 +6,11 @@ public class Gun : Arms {
     public new string name = "手枪";                  //武器名字
     public GameObject bullet;                         //子弹
 
+    void Start()
+    {
+        Destroy(gameObject, disappearTime);
+    }
+
     public override void Attack(Transform startposition)
     {
         var posion = startposition.forward;

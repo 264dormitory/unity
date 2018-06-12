@@ -51,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Common\DisappearTime.cs" />
      <Compile Include="Assets\Scripts\Controller\AIController.cs" />
      <Compile Include="Assets\Scripts\Controller\DinosaurController.cs" />
      <Compile Include="Assets\Scripts\Controller\MonsterController.cs" />
